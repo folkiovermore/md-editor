@@ -205,6 +205,77 @@ body.sans #ta{font-family:var(--ui)}
 #mirror{position:absolute;left:-99999px;top:0;visibility:hidden;white-space:pre-wrap;overflow-wrap:break-word}
 #print{display:none}
 
+/* ================= DESKTOP: chapters on the left, editor on the right ================= */
+#deskEmpty{display:none}
+.dk{display:none!important}
+body.desk{display:grid;grid-template-columns:clamp(300px,24vw,400px) 1fr;grid-template-rows:auto minmax(0,1fr)}
+body.desk #warn{grid-column:1/-1}
+body.desk #sHome{display:flex!important;grid-column:1;grid-row:2;border-right:1px solid var(--line);background:var(--bg);min-width:0}
+body.desk #sEdit,body.desk #sFind,body.desk #deskEmpty{grid-column:2;grid-row:2;min-width:0}
+body.desk #deskEmpty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted);text-align:center;padding:40px}
+body.desk:has(#sEdit.on) #deskEmpty,body.desk:has(#sFind.on) #deskEmpty{display:none}
+#deskEmpty h2{font-family:var(--serif);color:var(--ink);font-size:26px;margin:0}
+#deskEmpty p{margin:0;max-width:380px;line-height:1.55}
+#deskCont{background:var(--accent);color:var(--accent-ink);border-radius:12px;padding:12px 20px;font-weight:600;margin-top:6px;max-width:420px}
+body.desk .dk{display:flex!important}
+body.desk .mob{display:none!important}
+
+/* sidebar */
+body.desk #homeScroll{padding:0 12px 16px}
+body.desk #homeScroll .wrap{max-width:none}
+body.desk #hero{padding:22px 6px 14px}
+body.desk #bookTitle{font-size:23px}
+body.desk #bookTitle svg{width:16px;height:16px;margin-top:6px}
+body.desk #bookMeta{font-size:13px;gap:8px}
+body.desk #continue{display:none!important}
+body.desk .card{margin-bottom:6px;border-radius:12px}
+body.desk .card .main{min-height:0;padding:9px 12px;gap:10px}
+body.desk .card .name{font-size:15.5px}
+body.desk .card .over{font-size:10.5px}
+body.desk .card .meta{font-size:12px;margin-top:1px}
+body.desk .card .main>svg.i{display:none}
+body.desk .card .tog{min-height:32px;font-size:12.5px;padding:0 12px}
+body.desk .card .p{min-height:36px;padding:7px 12px 7px 16px}
+body.desk .card .p .pt{font-size:14.5px}
+body.desk .card.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+body.desk .card.active .main{background:var(--accent-soft)}
+body.desk .navbar{padding:4px 6px 6px;justify-content:space-between}
+body.desk .navbar .lb{min-height:48px;font-size:11px;max-width:none}
+body.desk #selActs .lb{min-height:48px}
+
+/* hover, since there's a mouse */
+body.desk .lb:hover,body.desk .card .main:hover,body.desk .card .p:hover,body.desk .card .tog:hover,body.desk .item:hover,body.desk .ebar .back:hover,body.desk #eHead:hover,body.desk #panel button:hover{background:var(--accent-soft)}
+body.desk .hit:hover{border-color:var(--accent)}
+body.desk .card.active .main:hover{background:var(--accent-soft)}
+
+/* editor pane: bar, then a full toolbar on top, then the page */
+body.desk #bBack{display:none}
+body.desk .ebar{padding:6px 16px;gap:6px}
+body.desk .ebar .lb{flex-direction:row;min-height:40px;padding:0 14px;gap:7px;font-size:13.5px}
+body.desk .ebar .lb svg.i{width:20px;height:20px}
+body.desk #eHead{min-height:0;padding:6px 10px}
+body.desk #tools{order:1;border-top:0;border-bottom:1px solid var(--line);padding:0;display:flex;flex-direction:column}
+body.desk #ta,body.desk #read{order:2}
+body.desk #panel{order:2}
+body.desk #keys{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;padding:5px 12px}
+body.desk #keys .lb{flex-direction:row;min-width:0;min-height:36px;padding:0 10px;gap:6px;font-size:12.5px;border-radius:9px;color:var(--muted)}
+body.desk #keys .lb:hover{color:var(--ink)}
+body.desk #keys .lb svg.i{width:19px;height:19px}
+body.desk #keys .lb .g{font-size:18px;height:20px;color:var(--ink)}
+body.desk #keys .sep{width:1px;align-self:stretch;margin:6px 6px;background:var(--line);min-height:0;padding:0}
+body.desk #ta{padding:36px max(32px,calc((100% - 700px)/2)) 40vh}
+body.desk .doc{max-width:700px;padding-top:36px}
+body.desk #fTop{padding-top:22px}
+
+/* sheets become centred dialogs */
+body.desk .sheet{left:50%;right:auto;top:50%;bottom:auto;width:min(480px,92vw);max-width:none;margin:0;border-radius:18px;padding:16px 12px 14px;max-height:84vh;
+  transform:translate(-50%,-47%);opacity:0;pointer-events:none;transition:transform .16s ease,opacity .16s ease;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+body.desk .sheet.on{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+body.desk .sheet .grab{display:none}
+body.desk .item{min-height:52px;padding:8px 12px}
+body.desk .item .ic{width:38px;height:38px}
+body.desk #toast{bottom:32px}
+
 @media print{
   html,body{height:auto;overflow:visible;display:block;background:#fff;color:#000}
   body>*:not(#print){display:none!important}
@@ -323,7 +394,7 @@ body.sans #ta{font-family:var(--ui)}
       <div id="eName"></div>
       <div id="eSub"></div>
     </button>
-    <button class="lb" id="bFindE"><svg class="i"><use href="#i-search"/></svg>Search</button>
+    <button class="lb" id="bFindE" title="Search (Ctrl+F)"><svg class="i"><use href="#i-search"/></svg>Search</button>
     <button class="lb acc" id="bMode"><svg class="i"><use href="#i-read" id="modeIco"/></svg><span id="modeT">Read</span></button>
   </div>
   <textarea id="ta" spellcheck="true" lang="es" autocapitalize="sentences"></textarea>
@@ -331,13 +402,23 @@ body.sans #ta{font-family:var(--ui)}
   <div id="tools">
     <div id="panel"></div>
     <div id="keys">
-      <button class="lb" data-k="undo"><svg class="i"><use href="#i-undo"/></svg>Undo</button>
-      <button class="lb" data-k="dash"><span class="g">—</span>Dash</button>
-      <button class="lb" data-k="bold"><span class="g" style="font-weight:700">B</span>Bold</button>
-      <button class="lb" data-k="italic"><span class="g" style="font-style:italic">I</span>Italic</button>
+      <button class="lb" data-k="undo" title="Undo (Ctrl+Z)"><svg class="i"><use href="#i-undo"/></svg>Undo</button>
+      <button class="lb dk" data-k="redo" title="Redo (Ctrl+Y)"><svg class="i"><use href="#i-redo"/></svg>Redo</button>
+      <span class="lb dk sep"></span>
+      <button class="lb" data-k="bold" title="Bold (Ctrl+B)"><span class="g" style="font-weight:700">B</span>Bold</button>
+      <button class="lb" data-k="italic" title="Italic (Ctrl+I)"><span class="g" style="font-style:italic">I</span>Italic</button>
+      <span class="lb dk sep"></span>
+      <button class="lb" data-k="dash" title="Dash (Ctrl+-)"><span class="g">—</span>Dash</button>
+      <button class="lb dk" data-k="guill"><span class="g">« »</span>Quotes</button>
+      <button class="lb dk" data-k="curly"><span class="g">“ ”</span>Curly</button>
+      <button class="lb dk" data-k="iq"><span class="g">¿</span>Question</button>
+      <button class="lb dk" data-k="ie"><span class="g">¡</span>Exclaim</button>
+      <button class="lb dk" data-k="ell"><span class="g">…</span>Ellipsis</button>
+      <button class="lb dk" data-k="brk"><span class="g">✻</span>Scene break</button>
+      <span class="lb dk sep"></span>
       <button class="lb" data-k="h2"><span class="g" style="font-family:var(--ui);font-weight:700;font-size:18px">H1</span>Chapter</button>
       <button class="lb" data-k="h3"><span class="g" style="font-family:var(--ui);font-weight:700;font-size:15px">H2</span>Part</button>
-      <button class="lb" data-k="@more"><svg class="i"><use href="#i-more"/></svg>More</button>
+      <button class="lb mob" data-k="@more"><svg class="i"><use href="#i-more"/></svg>More</button>
     </div>
   </div>
 </section>
@@ -364,13 +445,19 @@ body.sans #ta{font-family:var(--ui)}
   <div id="fList"><div class="wrap" id="fHits"></div></div>
 </section>
 
+<section id="deskEmpty">
+  <h2>Pick a chapter</h2>
+  <p>Your chapters are on the left. Click one to start writing; right-click it for more options.</p>
+  <button id="deskCont"></button>
+</section>
+
 <!-- ============ SHEETS ============ -->
 <div class="scrim" id="scrim"></div>
 
 <div class="sheet" id="sheetBackup">
   <div class="grab"></div>
   <h3>Back up your book</h3>
-  <button class="item" data-m="export"><span class="ic"><svg class="i"><use href="#i-save"/></svg></span><span><b>Save a copy to the phone</b><small>A .md file goes to Downloads</small></span></button>
+  <button class="item" data-m="export"><span class="ic"><svg class="i"><use href="#i-save"/></svg></span><span><b id="saveCopyT">Save a copy to the phone</b><small>A .md file goes to Downloads</small></span></button>
   <button class="item" data-m="share"><span class="ic"><svg class="i"><use href="#i-share"/></svg></span><span><b>Send a copy</b><small>To Google Drive, email, WhatsApp…</small></span></button>
   <button class="item" data-m="pdf"><span class="ic"><svg class="i"><use href="#i-pdf"/></svg></span><span><b>Save as PDF</b><small>Made right here, in the look chosen in Settings</small></span></button>
   <button class="item" data-m="docx"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><span><b>Save as Word (.docx)</b><small>Opens in Word or Google Docs, with chapter headings</small></span></button>
@@ -729,6 +816,15 @@ const ta=$('#ta');
 
 /* ================= storage: localStorage, falling back to IndexedDB ================= */
 const KEY='msEditor.v1';
+const deskMQ=matchMedia('(min-width: 900px) and (pointer: fine)');
+let DEV='phone';
+const isDesk=()=>document.body.classList.contains('desk');
+function applyDesk(){
+  const d=deskMQ.matches;document.body.classList.toggle('desk',d);DEV=d?'computer':'phone';
+  $('#saveCopyT').textContent=d?'Save a copy to this computer':'Save a copy to the phone';
+  $('#holdHint').textContent=d?'Right-click for options · ':'Hold for options · ';
+}
+applyDesk();
 let lsOK=false;
 try{localStorage.setItem('__t','1');lsOK=localStorage.getItem('__t')==='1';localStorage.removeItem('__t')}catch(e){}
 let idb=null;
@@ -809,7 +905,9 @@ function parse(){
 /* ================= saving ================= */
 function commit(){ // fold the textarea back into the book text
   if(!cur)return;
-  const v=ta.value;
+  let v=ta.value;
+  // never let the end of this chapter run into the next heading
+  if(cur.end<book.text.length&&!/\n$/.test(v))v+='\n\n';else if(cur.end<book.text.length&&!/\n\n$/.test(v))v+='\n';
   if(book.text.slice(cur.start,cur.end)!==v){book.text=book.text.slice(0,cur.start)+v+book.text.slice(cur.end);cur.end=cur.start+v.length}
   book.pos[cur.i]=ta.selectionStart;
 }
@@ -817,7 +915,7 @@ function showSaved(){
   const el=$('#hSaved');
   if(saveState==='bad'){el.textContent='Not saved';el.className='chip bad'}
   else if(saveState==='pending'){el.textContent='Saving…';el.className='chip pending'}
-  else{el.textContent='✓ Saved on this phone';el.className='chip'}
+  else{el.textContent='✓ Saved on this '+DEV;el.className='chip'}
   updateEditSub();
 }
 function markPending(){dirty=true;if(saveState!=='bad')saveState='pending';showSaved();clearTimeout(saveTimer);saveTimer=setTimeout(persist,600)}
@@ -826,7 +924,17 @@ async function persist(){
   const ok=await sset('book',book);
   saveState=ok?'ok':'bad';if(!ok)showWarn();
   showSaved();
+  if(isDesk())sideRefresh();
 }
+let sideT=null;
+function sideRefresh(){clearTimeout(sideT);sideT=setTimeout(()=>{const sc=$('#homeScroll'),y=sc.scrollTop;renderHome();sc.scrollTop=y},300)}
+/* desktop: before anything in the sidebar runs, put the open chapter back into the book */
+/* desktop: once a dialog or search closes, go back to the chapter that was open */
+function deskResume(){
+  if(!isDesk()||cur||picked||$('#sFind').classList.contains('on')||$('#scrim').classList.contains('on'))return;
+  parse();if(book.last>=0&&units[book.last])openUnit(book.last,book.pos[book.last]??0,true);
+}
+function deskDetach(){if(!cur)return;commit();repairBook();persist();cur=null;ta.blur();closePanel();show('sHome');history.replaceState({s:'home'},'')}
 function showWarn(){
   const w=$('#warn');
   w.innerHTML='<b>This page can’t save on this phone.</b> Chrome is blocking storage for files opened this way, so changes last only while this tab is open. Tap <b>Back up</b> before closing it.';
@@ -860,7 +968,7 @@ function renderHome(){
   $('#selLink').style.display=units.filter(u=>u.level===2).length>1?'':'none';$('#holdHint').style.display=units.filter(u=>u.level===2).length>1?'':'none';
   units.forEach((u,i)=>{
     if(u.level===1&&!book.text.slice(u.start,u.end).replace(/^#.*$/m,'').trim())return; // title only: nothing to open
-    const c=el('div','card'+(u.level===1?' title':'')+(open[i]?' open':'')+(picked&&picked.has(i)?' picked':''));
+    const c=el('div','card'+(u.level===1?' title':'')+(open[i]?' open':'')+(picked&&picked.has(i)?' picked':'')+(cur&&cur.i===i?' active':''));
     const main=el('button','main');const txt=el('div','txt');
     if(u.level!==1){const ck=el('span','ck');ck.appendChild(icon('i-check'));main.appendChild(ck)}
     if(u.level===1){txt.appendChild(el('div','name','Title page'))}
@@ -900,6 +1008,9 @@ function renderHome(){
     $('#contS').textContent=snip;
     c.onclick=()=>openUnit(book.last,book.pos[book.last]??0,true);
   }else c.style.display='none';
+  const dc=$('#deskCont');
+  if(book.last>=0&&units[book.last]){const u=units[book.last],st=unitDisplay(u);dc.style.display='';dc.textContent='Continue: '+(u.level===1?'Title page':(st.over?st.over+' · ':'')+st.name);dc.onclick=()=>openUnit(book.last,book.pos[book.last]??0,true)}
+  else dc.style.display='none';
 }
 
 /* ================= editing ================= */
@@ -915,7 +1026,7 @@ function openUnit(i,offset,isCaret,fromFind,noHist){
   $('#eCaret').style.display=u.parts.length?'':'none';
   $('#eOver').style.display=(st.over||u.parts.length)?'':'none';
   closePanel();
-  show('sEdit');if(noHist){}else if(fromFind)history.replaceState({s:'edit'},'');else history.pushState({s:'edit'},'');
+  show('sEdit');if(noHist){}else if(isDesk()&&history.state&&history.state.s==='edit')history.replaceState({s:'edit'},'');else if(fromFind)history.replaceState({s:'edit'},'');else history.pushState({s:'edit'},'');
   setMode('edit');
   requestAnimationFrame(()=>{
     const pos=offset!=null?offset:(book.pos[i]??0);
@@ -1075,7 +1186,7 @@ function run(k){
   }
   if(document.activeElement!==ta)ta.focus({preventScroll:true});K[k]();
 }
-$$('#keys button').forEach(b=>{
+$$('#keys button[data-k]').forEach(b=>{
   b.addEventListener('pointerdown',e=>e.preventDefault());
   b.addEventListener('mousedown',e=>e.preventDefault());
   b.addEventListener('click',()=>{const k=b.dataset.k;if(k[0]==='@')togglePanel(k);else{closePanel();run(k)}});
@@ -1162,7 +1273,7 @@ function holdable(elm,fn){
   elm.addEventListener('pointerdown',e=>{x=e.clientX;y=e.clientY;elm._held=false;elm.classList.add('hold');t=setTimeout(()=>{t=null;elm._held=true;elm.classList.remove('hold');try{navigator.vibrate&&navigator.vibrate(12)}catch(_){}fn()},480)});
   elm.addEventListener('pointermove',e=>{if(t&&(Math.abs(e.clientX-x)>10||Math.abs(e.clientY-y)>10))cancel()});
   ['pointerup','pointercancel','pointerleave'].forEach(ev=>elm.addEventListener(ev,()=>{if(t)cancel()}));
-  elm.addEventListener('contextmenu',e=>e.preventDefault());
+  elm.addEventListener('contextmenu',e=>{e.preventDefault();if(isDesk()){clearTimeout(t);t=null;elm.classList.remove('hold');elm._held=false;fn()}});
 }
 let chapI=-1;
 function chapRange(i){return[units[i].start,units[i].end]}
@@ -1329,7 +1440,7 @@ $('#splitSend').onclick=()=>splitFinish(true);
 
 /* ================= PDF / Word made inside the app ================= */
 let busyCancel=false;
-function busy(on,title){$('#busy').classList.toggle('on',on);if(on){busyCancel=false;$('#busyT').textContent=title;$('#busyBar').style.width='0';$('#busyS').textContent='This stays on your phone';
+function busy(on,title){$('#busy').classList.toggle('on',on);if(on){busyCancel=false;$('#busyT').textContent=title;$('#busyBar').style.width='0';$('#busyS').textContent='This stays on your '+DEV;
   $('#busyBarW').style.display='';$('#busyX').style.display='';$('#busyDone').style.display='none';$('#busyClose').style.display='none'}}
 let ready=null;
 function saveReady(){if(!ready)return;const a=document.createElement('a');a.href=URL.createObjectURL(ready.blob);a.download=safeName(ready.name);document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000);busy(false);toast('Saved '+ready.name+' to Downloads')}
@@ -1440,16 +1551,18 @@ $('#bFBack').onclick=()=>history.back();
 function show(id){$$('.screen').forEach(s=>s.classList.toggle('on',s.id===id))}
 history.replaceState({s:'home'},'');
 addEventListener('popstate',()=>{
-  if(closeSheets()){const a=pendingAction;pendingAction=null;if(a)a();return}
-  if(picked){endPick();return}
+  if(closeSheets()){const a=pendingAction;pendingAction=null;
+    Promise.resolve(a?a():null).catch(()=>{}).then(()=>setTimeout(deskResume,0));return} // wait for the change to finish before reopening
+  if(picked){endPick();deskResume();return}
   if($('#sEdit').classList.contains('on')){if(panelOpen){closePanel();history.pushState({s:'edit'},'');return}closeEdit()}
   else if($('#sFind').classList.contains('on')){
     if(findFrom==='edit'){
       parse();const po=pendingOpen;pendingOpen=null;
       if(po)openUnit(po[0],null,false,[po[1],po[1]+po[2]],true);
       else{const i=Math.min(findUnit,units.length-1);openUnit(i,book.pos[i]??0,true,null,true)}
-    }else{show('sHome');renderHome()}
+    }else{show('sHome');renderHome();deskResume()}
   }
+  else setTimeout(deskResume,0);
 });
 
 /* ================= sheets ================= */
@@ -1512,6 +1625,7 @@ $('#filein').onchange=async e=>{
   await openFile(f);
 };
 async function openFile(f){
+  if(cur)deskDetach();
   const text=await f.text();
   if(text.startsWith('%PDF')){alert('That’s a PDF. This editor opens .md (Markdown) text files.');return}
   if(book.text.trim()&&book.text!==text&&!confirm('Open “'+f.name+'”?\n\nIt replaces the book here. Your current one is kept: More → Undo a big change.'))return;
@@ -1540,6 +1654,28 @@ function applyOpts(){
 }
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyOpts);
 
+/* ================= desktop wiring ================= */
+deskMQ.addEventListener('change',()=>{applyDesk();renderHome()});
+$('#sHome').addEventListener('click',e=>{
+  if(!isDesk()||!cur)return;const b=e.target.closest('button,[role=button]');
+  if(!b||b.classList.contains('tog'))return;
+  deskDetach();setTimeout(()=>{const sc=$('#homeScroll'),y=sc.scrollTop;renderHome();sc.scrollTop=y},0);
+},true);
+$('#sHome').addEventListener('contextmenu',e=>{if(isDesk()&&cur&&e.target.closest('.card'))deskDetach()},true);
+addEventListener('keydown',e=>{
+  if(!isDesk())return;
+  if(e.key==='Escape'){if($('#scrim').classList.contains('on')){e.preventDefault();dismiss();return}
+    if($('#sFind').classList.contains('on')){e.preventDefault();history.back();return}
+    if(panelOpen){closePanel();return}}
+  const mod=e.ctrlKey||e.metaKey;if(!mod||e.altKey)return;const k=e.key.toLowerCase();
+  if(k==='f'&&!$('#scrim').classList.contains('on')&&!$('#sFind').classList.contains('on')){e.preventDefault();openFind();return}
+  if(k==='s'){e.preventDefault();persist().then(()=>toast('Saved'));return}
+  if(document.activeElement!==ta||mode!=='edit')return;
+  if(k==='b'){e.preventDefault();run('bold')}
+  else if(k==='i'){e.preventDefault();run('italic')}
+  else if(k==='-'&&!e.shiftKey){e.preventDefault();run('dash')}
+});
+
 /* ================= start ================= */
 (async()=>{
   idb=await idbOpen();
@@ -1555,6 +1691,7 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyOpts);
   loaded=true;
   repairBook();
   renderHome();
+  if(isDesk()&&book.last>=0&&units[book.last])openUnit(book.last,book.pos[book.last]??0,true);
   /* opened by double-clicking a .md file (installed app = default .md opener) */
   if('launchQueue' in window){
     launchQueue.setConsumer(async p=>{
