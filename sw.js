@@ -1,6 +1,6 @@
 // Network first, cached copy when offline.
 // Change the version (manuscript-v3, -v4…) whenever you upload new files.
-const C='manuscript-v2', FILES=['./','index.html','convert.html','manifest.webmanifest','icon-192.png','icon-512.png'];
+const C='manuscript-v3', FILES=['./','index.html','convert.html','manifest.webmanifest','icon-192.png','icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(FILES)));self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys()
   .then(ks=>Promise.all(ks.filter(k=>k!==C&&(k.startsWith('manuscript-')||k.startsWith('convert-'))).map(k=>caches.delete(k))))

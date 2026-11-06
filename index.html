@@ -348,15 +348,15 @@ body.desk #toast{bottom:32px}
 <section class="screen on" id="sHome">
   <div id="homeScroll"><div class="wrap">
     <div id="empty">
-      <h2>Your book, offline</h2>
+      <h2>Your writing, offline</h2>
       <p>Open your .md file once. After that it lives here and saves itself as you type, even in airplane mode.</p>
       <button class="big pri" id="bOpenE"><svg class="i"><use href="#i-folder"/></svg>Open a .md file</button>
       <button class="big sec" id="bConvE"><svg class="i"><use href="#i-doc"/></svg>Convert a PDF or Word file</button>
-      <button class="big sec" id="bNewE"><svg class="i"><use href="#i-new"/></svg>Start a new book</button>
+      <button class="big sec" id="bNewE"><svg class="i"><use href="#i-new"/></svg>Start a new document</button>
     </div>
     <div id="book" style="display:none">
       <div id="hero">
-        <h1 id="bookTitle" role="button" aria-label="Rename the book"><span id="bookTitleT"></span><svg class="i"><use href="#i-write"/></svg></h1>
+        <h1 id="bookTitle" role="button" aria-label="Rename the document"><span id="bookTitleT"></span><svg class="i"><use href="#i-write"/></svg></h1>
         <div id="bookMeta"><span id="bookStats"></span><span class="chip" id="hSaved"></span></div>
       </div>
       <button id="continue">
@@ -365,13 +365,13 @@ body.desk #toast{bottom:32px}
         <div class="s" id="contS"></div>
         <div class="go">Open <svg class="i" style="width:18px;height:18px"><use href="#i-right"/></svg></div>
       </button>
-      <div class="sectionLabel" style="display:flex;justify-content:space-between;align-items:center"><span>Chapters</span><span><span id="holdHint" style="text-transform:none;letter-spacing:0;font-weight:400">Hold for options · </span><button id="selLink">Select</button></span></div>
+      <div class="sectionLabel" style="display:flex;justify-content:space-between;align-items:center"><span>Sections</span><span><span id="holdHint" style="text-transform:none;letter-spacing:0;font-weight:400">Hold for options · </span><button id="selLink">Select</button></span></div>
       <div id="chapters"></div>
     </div>
   </div></div>
   <nav class="navbar" id="homeNav">
     <button class="lb" id="nSearch"><svg class="i"><use href="#i-search"/></svg>Search</button>
-    <button class="lb" id="nAdd"><svg class="i"><use href="#i-plus"/></svg>New chapter</button>
+    <button class="lb" id="nAdd"><svg class="i"><use href="#i-plus"/></svg>New section</button>
     <button class="lb" id="nBackup"><svg class="i"><use href="#i-backup"/></svg>Back up</button>
     <button class="lb" id="nMore"><svg class="i"><use href="#i-more"/></svg>More</button>
   </nav>
@@ -389,7 +389,7 @@ body.desk #toast{bottom:32px}
 <!-- ============ EDIT ============ -->
 <section class="screen" id="sEdit">
   <div class="ebar">
-    <button class="back" id="bBack" aria-label="Back to chapters"><svg class="i"><use href="#i-back"/></svg></button>
+    <button class="back" id="bBack" aria-label="Back to sections"><svg class="i"><use href="#i-back"/></svg></button>
     <button id="eHead" aria-label="Jump to a part">
       <div id="eOver"><span id="eOverT"></span><svg class="i" id="eCaret"><use href="#i-down"/></svg></div>
       <div id="eName"></div>
@@ -417,7 +417,7 @@ body.desk #toast{bottom:32px}
       <button class="lb dk" data-k="ell"><span class="g">…</span>Ellipsis</button>
       <button class="lb dk" data-k="brk"><span class="g">✻</span>Scene break</button>
       <span class="lb dk sep"></span>
-      <button class="lb" data-k="h2"><span class="g" style="font-family:var(--ui);font-weight:700;font-size:18px">H1</span>Chapter</button>
+      <button class="lb" data-k="h2"><span class="g" style="font-family:var(--ui);font-weight:700;font-size:18px">H1</span>Section</button>
       <button class="lb" data-k="h3"><span class="g" style="font-family:var(--ui);font-weight:700;font-size:15px">H2</span>Part</button>
       <button class="lb mob" data-k="@more"><svg class="i"><use href="#i-more"/></svg>More</button>
     </div>
@@ -430,14 +430,14 @@ body.desk #toast{bottom:32px}
     <button class="back" id="bFBack" aria-label="Back"><svg class="i"><use href="#i-back"/></svg></button>
     <div style="flex:1;min-width:0;padding:6px">
       <div style="font-family:var(--serif);font-size:17px;font-weight:600">Search &amp; replace</div>
-      <div id="fScopeT" style="font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Whole book</div>
+      <div id="fScopeT" style="font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Whole document</div>
     </div>
   </div>
   <div id="fTop"><div class="wrap">
     <input class="inp" type="text" id="fQ" placeholder="Search for…" autocomplete="off" spellcheck="false">
     <input class="inp" type="text" id="fR" placeholder="Replace with… (optional)" autocomplete="off" spellcheck="false">
     <div class="chips">
-      <button class="tg" id="tChap"><svg class="i"><use href="#i-check"/></svg>This chapter only</button>
+      <button class="tg" id="tChap"><svg class="i"><use href="#i-check"/></svg>This section only</button>
       <button class="tg" id="tCase"><svg class="i"><use href="#i-check"/></svg>Match case</button>
       <button class="tg" id="tWord"><svg class="i"><use href="#i-check"/></svg>Whole word</button>
     </div>
@@ -447,8 +447,8 @@ body.desk #toast{bottom:32px}
 </section>
 
 <section id="deskEmpty">
-  <h2>Pick a chapter</h2>
-  <p>Your chapters are on the left. Click one to start writing; right-click it for more options.</p>
+  <h2>Pick a section</h2>
+  <p>Your sections are on the left. Click one to start writing; right-click it for more options.</p>
   <button id="deskCont"></button>
 </section>
 
@@ -457,11 +457,11 @@ body.desk #toast{bottom:32px}
 
 <div class="sheet" id="sheetBackup">
   <div class="grab"></div>
-  <h3>Back up your book</h3>
+  <h3>Back up your document</h3>
   <button class="item" data-m="export"><span class="ic"><svg class="i"><use href="#i-save"/></svg></span><span><b id="saveCopyT">Save a copy to the phone</b><small>A .md file goes to Downloads</small></span></button>
   <button class="item" data-m="share"><span class="ic"><svg class="i"><use href="#i-share"/></svg></span><span><b>Send a copy</b><small>To Google Drive, email, WhatsApp…</small></span></button>
   <button class="item" data-m="pdf"><span class="ic"><svg class="i"><use href="#i-pdf"/></svg></span><span><b>Save as PDF</b><small>Made right here, in the look chosen in Settings</small></span></button>
-  <button class="item" data-m="docx"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><span><b>Save as Word (.docx)</b><small>Opens in Word or Google Docs, with chapter headings</small></span></button>
+  <button class="item" data-m="docx"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><span><b>Save as Word (.docx)</b><small>Opens in Word or Google Docs, with headings</small></span></button>
   <button class="item" data-m="print"><span class="ic"><svg class="i"><use href="#i-print"/></svg></span><span><b>Print with Chrome</b><small>The old way: Chrome’s print screen</small></span></button>
 </div>
 
@@ -469,30 +469,30 @@ body.desk #toast{bottom:32px}
   <div class="grab"></div>
   <h3 id="incT">From the converter</h3>
   <p class="note" id="incInfo" style="padding-top:0"></p>
-  <button class="item" id="incOpen"><span class="ic"><svg class="i"><use href="#i-folder"/></svg></span><span><b>Open it as its own book</b><small>Your current book is kept: More → Undo a big change</small></span></button>
-  <button class="item" id="incAdd"><span class="ic"><svg class="i"><use href="#i-plus"/></svg></span><span><b>Add it to this book</b><small>Its chapters go in where you choose</small></span></button>
+  <button class="item" id="incOpen"><span class="ic"><svg class="i"><use href="#i-folder"/></svg></span><span><b>Open it as its own document</b><small>Your current document is kept: More → Undo a big change</small></span></button>
+  <button class="item" id="incAdd"><span class="ic"><svg class="i"><use href="#i-plus"/></svg></span><span><b>Add it to this document</b><small>Its sections go in where you choose</small></span></button>
 </div>
 <div class="sheet" id="sheetMore">
   <div class="grab"></div>
   <button class="item" data-m="settings"><span class="ic"><svg class="i"><use href="#i-settings"/></svg></span><span><b>Settings</b><small>Text size, dark mode, spellcheck</small></span></button>
   <button class="item" data-m="restore"><span class="ic"><svg class="i"><use href="#i-restore"/></svg></span><span><b>Undo a big change</b><small id="prevInfo">Nothing to go back to yet</small></span></button>
-  <button class="item" data-m="convert"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><span><b>Convert a PDF or Word file</b><small>Turn it into .md, then open it here or add it as chapters</small></span></button>
-  <button class="item" data-m="open"><span class="ic"><svg class="i"><use href="#i-folder"/></svg></span><span><b>Open a different file</b><small>Your current book is kept as a backup</small></span></button>
-  <button class="item" data-m="new"><span class="ic"><svg class="i"><use href="#i-new"/></svg></span><span><b>Start a new book</b><small>Your current book is kept as a backup</small></span></button>
+  <button class="item" data-m="convert"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><span><b>Convert a PDF or Word file</b><small>Turn it into .md, then open it here or add it as sections</small></span></button>
+  <button class="item" data-m="open"><span class="ic"><svg class="i"><use href="#i-folder"/></svg></span><span><b>Open a different file</b><small>Your current document is kept as a backup</small></span></button>
+  <button class="item" data-m="new"><span class="ic"><svg class="i"><use href="#i-new"/></svg></span><span><b>Start a new document</b><small>Your current document is kept as a backup</small></span></button>
 </div>
 
 <div class="sheet" id="sheetChap">
   <div class="grab"></div>
   <div style="padding:0 12px 10px"><div id="cOver" style="font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)"></div><div id="cName" style="font-family:var(--serif);font-size:19px;font-weight:600"></div><div id="cMeta" style="font-size:13px;color:var(--muted)"></div></div>
-  <button class="item" data-c="select"><span class="ic"><svg class="i"><use href="#i-check"/></svg></span><span><b>Select several chapters</b><small>Save them together as a new .md, PDF or Word file</small></span></button>
+  <button class="item" data-c="select"><span class="ic"><svg class="i"><use href="#i-check"/></svg></span><span><b>Select several sections</b><small>Save them together as a new .md, PDF or Word file</small></span></button>
   <button class="item" data-c="rename"><span class="ic"><svg class="i"><use href="#i-write"/></svg></span><span><b>Rename</b></span></button>
   <button class="item" data-c="up"><span class="ic"><svg class="i"><use href="#i-up"/></svg></span><span><b>Move up</b></span></button>
   <button class="item" data-c="down"><span class="ic"><svg class="i"><use href="#i-dn"/></svg></span><span><b>Move down</b></span></button>
-  <button class="item" data-c="md"><span class="ic"><svg class="i"><use href="#i-save"/></svg></span><span><b>Save chapter as .md</b><small>Goes to Downloads</small></span></button>
-  <button class="item" data-c="share"><span class="ic"><svg class="i"><use href="#i-share"/></svg></span><span><b>Send chapter</b><small>To Drive, email, WhatsApp…</small></span></button>
-  <button class="item" data-c="pdf"><span class="ic"><svg class="i"><use href="#i-pdf"/></svg></span><span><b>Save chapter as PDF</b></span></button>
-  <button class="item" data-c="docx"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><span><b>Save chapter as Word</b></span></button>
-  <button class="item danger" data-c="del"><span class="ic"><svg class="i"><use href="#i-trash"/></svg></span><span><b>Delete chapter</b><small>You can undo with More → Undo a big change</small></span></button>
+  <button class="item" data-c="md"><span class="ic"><svg class="i"><use href="#i-save"/></svg></span><span><b>Save section as .md</b><small>Goes to Downloads</small></span></button>
+  <button class="item" data-c="share"><span class="ic"><svg class="i"><use href="#i-share"/></svg></span><span><b>Send section</b><small>To Drive, email, WhatsApp…</small></span></button>
+  <button class="item" data-c="pdf"><span class="ic"><svg class="i"><use href="#i-pdf"/></svg></span><span><b>Save section as PDF</b></span></button>
+  <button class="item" data-c="docx"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><span><b>Save section as Word</b></span></button>
+  <button class="item danger" data-c="del"><span class="ic"><svg class="i"><use href="#i-trash"/></svg></span><span><b>Delete section</b><small>You can undo with More → Undo a big change</small></span></button>
 </div>
 <div class="sheet" id="sheetSplit">
   <div class="grab"></div>
@@ -500,42 +500,42 @@ body.desk #toast{bottom:32px}
   <p class="note" id="splitInfo" style="padding-top:0"></p>
   <div style="padding:0 12px"><div style="font-size:13px;color:var(--muted);margin:0 2px 6px">File name</div>
   <input id="splitName" type="text" autocomplete="off" style="width:100%;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:14px 16px;font-size:17px;font-family:var(--serif);outline:none"></div>
-  <button class="item" id="splitRemove" style="margin-top:8px"><span class="ic" id="splitRemoveBox" style="font-weight:700;width:30px;height:30px;margin:0 6px;border:2px solid var(--faint);border-radius:8px;background:none"></span><span><b>Also remove them from this book</b><small>Moves the chapters out instead of copying. Undo with More → Undo a big change</small></span></button>
+  <button class="item" id="splitRemove" style="margin-top:8px"><span class="ic" id="splitRemoveBox" style="font-weight:700;width:30px;height:30px;margin:0 6px;border:2px solid var(--faint);border-radius:8px;background:none"></span><span><b>Also remove them from this document</b><small>Moves the sections out instead of copying. Undo with More → Undo a big change</small></span></button>
   <div style="display:flex;gap:8px;padding:6px 12px 0"><button class="done" id="splitSave" style="flex:1;margin:0">Save</button><button class="done" id="splitSend" style="flex:1;margin:0;background:var(--bg);color:var(--ink);border:1px solid var(--line)">Send</button></div>
 </div>
 <div class="sheet" id="sheetRename">
   <div class="grab"></div>
-  <h3>Chapter title</h3>
+  <h3>Section title</h3>
   <div style="padding:0 12px"><input id="renIn" type="text" autocomplete="off" style="width:100%;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:14px 16px;font-size:17px;font-family:var(--serif);outline:none"></div>
   <p class="note" style="padding-top:4px">The whole title line, e.g. “Cap. 12. Viernes, 26 de mayo de 2023”.</p>
-  <div id="renSubWrap" style="padding:0 12px 6px"><div style="font-size:13px;color:var(--muted);margin:0 2px 6px">Chapter name (the italic line under the title)</div>
+  <div id="renSubWrap" style="padding:0 12px 6px"><div style="font-size:13px;color:var(--muted);margin:0 2px 6px">Subtitle (the italic line under the title)</div>
   <input id="renSub" type="text" autocomplete="off" style="width:100%;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:13px 16px;font-size:17px;font-family:var(--serif);font-style:italic;outline:none"></div>
   <button class="done" id="bRen">Save</button>
 </div>
 <div class="sheet" id="sheetNew">
   <div class="grab"></div>
-  <h3>New chapter</h3>
-  <button class="item" id="nBlank"><span class="ic"><svg class="i"><use href="#i-plus"/></svg></span><span><b>Blank chapter</b><small id="nBlankS">Starts a new chapter at the end</small></span></button>
-  <button class="item" id="nFromFile"><span class="ic"><svg class="i"><use href="#i-folder"/></svg></span><span><b>From a .md file</b><small>Adds the chapters from another file to this book</small></span></button>
+  <h3>New section</h3>
+  <button class="item" id="nBlank"><span class="ic"><svg class="i"><use href="#i-plus"/></svg></span><span><b>Blank section</b><small id="nBlankS">Starts a new section at the end</small></span></button>
+  <button class="item" id="nFromFile"><span class="ic"><svg class="i"><use href="#i-folder"/></svg></span><span><b>From a .md file</b><small>Adds the sections from another file to this document</small></span></button>
 </div>
 <div class="sheet" id="sheetImport">
   <div class="grab"></div>
-  <h3 id="impT">Add chapters</h3>
+  <h3 id="impT">Add sections</h3>
   <p class="note" id="impInfo" style="padding-top:0"></p>
   <div id="impList" style="margin:0 12px 10px;border:1px solid var(--line);border-radius:14px;overflow:hidden"></div>
   <div id="impNameWrap" style="padding:0 12px 8px">
-    <div style="font-size:13px;color:var(--muted);margin:0 2px 6px">Chapter title</div>
+    <div style="font-size:13px;color:var(--muted);margin:0 2px 6px">Section title</div>
     <input id="impName" type="text" autocomplete="off" style="width:100%;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:13px 14px;font-size:17px;font-family:var(--serif);outline:none">
   </div>
   <div style="padding:4px 12px 8px">
     <div style="font-size:13px;color:var(--muted);margin:0 2px 6px">Where</div>
     <select id="impWhere" style="width:100%;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:13px 12px;font-size:16px;color:var(--ink)"></select>
   </div>
-  <button class="done" id="bImp">Add to the book</button>
+  <button class="done" id="bImp">Add to the document</button>
 </div>
 <div class="sheet" id="sheetTitle">
   <div class="grab"></div>
-  <h3>Book title</h3>
+  <h3>Document title</h3>
   <div style="padding:0 12px"><input class="inp" id="titleIn" type="text" autocomplete="off" style="width:100%;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:14px 16px;font-size:18px;font-family:var(--serif);outline:none"></div>
   <p class="note" style="padding-top:4px">Shown at the top of this page, on the first page of the PDF, and used as the file name when you back up.</p>
   <button class="done" id="bTitleSave">Save</button>
@@ -551,10 +551,10 @@ body.desk #toast{bottom:32px}
   <h3>Settings</h3>
   <div class="set"><span>Theme</span><div class="seg" data-o="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="dark">Dark</button></div></div>
   <div class="set"><span>Text size</span><div class="stepper"><button id="szM" aria-label="Smaller">−</button><span id="szV"></span><button id="szP" aria-label="Bigger">+</button></div></div>
-  <div class="set"><span>Font</span><div class="seg" data-o="font"><button data-v="serif" style="font-family:var(--serif)">Book</button><button data-v="sans">Simple</button></div></div>
+  <div class="set"><span>Font</span><div class="seg" data-o="font"><button data-v="serif" style="font-family:var(--serif)">Serif</button><button data-v="sans">Simple</button></div></div>
   <div class="set"><span>Spellcheck</span><div class="seg" data-o="lang"><button data-v="es">ES</button><button data-v="en">EN</button><button data-v="pl">PL</button><button data-v="off">Off</button></div></div>
   <div class="set"><span>PDF look</span><div class="seg" data-o="print"><button data-v="ms">Manuscript</button><button data-v="compact">Compact</button><button data-v="book">A5</button></div></div>
-  <p class="note">Everything saves on this phone as you type. Use <b>Back up</b> now and then to keep a copy outside this page. If Spanish words aren't spell-checked, add Spanish in your keyboard's settings.</p>
+  <p class="note">Everything saves on this device as you type. Use <b>Back up</b> now and then to keep a copy outside this page. If Spanish words aren't spell-checked, add Spanish in your keyboard's settings.</p>
   <button class="done" id="bSetDone">Done</button>
 </div>
 
@@ -562,7 +562,7 @@ body.desk #toast{bottom:32px}
 <input type="file" id="fileAdd" style="display:none">
 <div id="mirror"></div>
 <div id="toast"></div>
-<div id="busy"><div class="box"><b id="busyT">Making your PDF…</b><small id="busyS">This stays on your phone</small><div class="bar" id="busyBarW"><div id="busyBar"></div></div><button id="busyX">Cancel</button><div id="busyDone" style="display:none;gap:8px;margin-top:4px"><button id="busySave" class="done" style="margin:0;flex:1">Save</button><button id="busyShare" style="margin:0;flex:1">Send</button></div><button id="busyClose" style="display:none;border:0;background:none;color:var(--muted)">Close</button></div></div>
+<div id="busy"><div class="box"><b id="busyT">Making your PDF…</b><small id="busyS">This stays on your device</small><div class="bar" id="busyBarW"><div id="busyBar"></div></div><button id="busyX">Cancel</button><div id="busyDone" style="display:none;gap:8px;margin-top:4px"><button id="busySave" class="done" style="margin:0;flex:1">Save</button><button id="busyShare" style="margin:0;flex:1">Send</button></div><button id="busyClose" style="display:none;border:0;background:none;color:var(--muted)">Close</button></div></div>
 <article id="print"></article>
 
 <script>/**
@@ -802,7 +802,7 @@ async function makeDOCX(md,title,progress){
     '<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>'+
     '<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:before="4800" w:after="0"/><w:jc w:val="center"/></w:pPr><w:rPr><w:b/><w:sz w:val="48"/><w:szCs w:val="48"/></w:rPr></w:style>'+
     '<w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="ChapterName"/><w:qFormat/><w:pPr><w:keepNext/><w:pageBreakBefore/><w:spacing w:before="800" w:after="120"/><w:jc w:val="left"/><w:outlineLvl w:val="0"/></w:pPr><w:rPr><w:b/><w:sz w:val="25"/><w:szCs w:val="25"/></w:rPr></w:style>'+
-    '<w:style w:type="paragraph" w:customStyle="1" w:styleId="ChapterName"><w:name w:val="Chapter Name"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="18" w:color="999999"/></w:pBdr><w:spacing w:after="480"/><w:jc w:val="left"/></w:pPr><w:rPr><w:i/><w:color w:val="555555"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr></w:style>'+
+    '<w:style w:type="paragraph" w:customStyle="1" w:styleId="ChapterName"><w:name w:val="Subtitle Line"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="18" w:color="999999"/></w:pBdr><w:spacing w:after="480"/><w:jc w:val="left"/></w:pPr><w:rPr><w:i/><w:color w:val="555555"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr></w:style>'+
     '<w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="360" w:after="120"/><w:jc w:val="left"/><w:outlineLvl w:val="1"/></w:pPr><w:rPr><w:i/><w:color w:val="333333"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:style>'+
     '<w:style w:type="paragraph" w:customStyle="1" w:styleId="SceneBreak"><w:name w:val="Scene Break"/><w:basedOn w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:before="200" w:after="200"/><w:jc w:val="center"/></w:pPr></w:style>'+
     '</w:styles>';
@@ -946,7 +946,7 @@ function deskResume(){
 function deskDetach(){if(!cur)return;commit();repairBook();persist();cur=null;ta.blur();closePanel();show('sHome');history.replaceState({s:'home'},'')}
 function showWarn(){
   const w=$('#warn');
-  w.innerHTML='<b>This page can’t save on this phone.</b> Chrome is blocking storage for files opened this way, so changes last only while this tab is open. Tap <b>Back up</b> before closing it.';
+  w.innerHTML='<b>This page can’t save on this device.</b> Chrome is blocking storage for files opened this way, so changes last only while this tab is open. Tap <b>Back up</b> before closing it.';
   w.classList.add('on');
 }
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&dirty)persist()});
@@ -971,7 +971,7 @@ function renderHome(){
   const title=titleU?titleU.title:(book.name.replace(/\.(md|markdown|txt)$/i,'')||'Untitled');
   $('#bookTitleT').textContent=title;document.title=title;
   const total=words(book.text), nCh=units.filter(u=>u.level===2).length;
-  $('#bookStats').textContent=total.toLocaleString()+' words · '+nCh+(nCh===1?' chapter':' chapters');
+  $('#bookStats').textContent=total.toLocaleString()+' words · '+nCh+(nCh===1?' section':' sections');
   showSaved();
   const list=$('#chapters');list.textContent='';
   $('#selLink').style.display=units.filter(u=>u.level===2).length>1?'':'none';$('#holdHint').style.display=units.filter(u=>u.level===2).length>1?'':'none';
@@ -985,7 +985,7 @@ function renderHome(){
       const st=unitDisplay(u);
       if(st.over)txt.appendChild(el('div','over',st.over));
       txt.appendChild(el('div','name',st.name));
-      txt.appendChild(el('div','meta',(st.meta?st.meta+' · ':'')+fmtW(words(book.text.slice(u.start,u.end)))+' words'));
+      txt.appendChild(el('div','meta',(st.meta?st.meta+' · ':'')+(w=>fmtW(w)+(w===1?' word':' words'))(words(book.text.slice(u.start,u.end)))));
     }
     main.appendChild(txt);main.appendChild(icon('i-right','width:20px;height:20px;color:var(--faint)'));
     main.onclick=()=>{if(main._held){main._held=false;return}if(picked){togglePick(i,c);return}openUnit(i)};holdable(main,()=>{if(picked)togglePick(i,c);else chapterMenu(i)});c.appendChild(main);
@@ -1029,7 +1029,7 @@ function openUnit(i,offset,isCaret,fromFind,noHist){
   cur={i,start:u.start,end:u.end};book.last=i;
   ta.value=book.text.slice(u.start,u.end);
   const st=unitDisplay(u);
-  $('#eOverT').textContent=st.over||(u.parts.length?'Chapter':'');
+  $('#eOverT').textContent=st.over||(u.parts.length?'Section':'');
   $('#eName').textContent=st.name;
   cur.meta=st.meta;
   $('#eCaret').style.display=u.parts.length?'':'none';
@@ -1093,7 +1093,7 @@ $('#eHead').onclick=()=>{
     const t=el('span');t.appendChild(el('b',null,label));if(sub)t.appendChild(el('small',null,sub));b.appendChild(t);
     b.onclick=()=>dismiss(()=>jumpTo(pos,j));list.appendChild(b);
   };
-  add('Start of chapter',null,0,-1);
+  add('Start of section',null,0,-1);
   uu.parts.forEach((p,j)=>{const st=splitTitle(p.title);add(st.name,st.over,p.offset,j)});
   $('#jumpT').textContent=$('#eName').textContent;
   openSheet('#sheetJump');
@@ -1156,7 +1156,7 @@ const K={
 };
 const PANELS={
   '@title':[
-    {k:'h2',g:'H',label:'Chapter title',wide:1,sub:''},
+    {k:'h2',g:'H',label:'Section title',wide:1,sub:''},
     {k:'h3',g:'h',label:'Part title',wide:1}
   ],
   '@more':[
@@ -1213,7 +1213,7 @@ function addChapter(){
   const h=nextChapterHeading();
   book.text=book.text.replace(/\s*$/,'')+'\n\n'+h+'\n\n';
   parse();const i=units.length-1;openUnit(i,0,true);
-  requestAnimationFrame(()=>{ta.focus();ta.setSelectionRange(h.length,h.length);toast('Type the chapter name, then start writing below')});
+  requestAnimationFrame(()=>{ta.focus();ta.setSelectionRange(h.length,h.length);toast('Type the section name, then start writing below')});
 }
 $('#nAdd').onclick=()=>openSheet('#sheetNew');
 $('#nBlank').onclick=()=>dismiss(addChapter);
@@ -1238,12 +1238,12 @@ function importText(rawText,fileName){
   const lead=heads.length?text.slice(0,heads[0].at).trim():text;
   const stem=(f.name||'').replace(/\.(md|markdown|txt)$/i,'');
   imp={text,heads,needName:!!lead,stem,name:f.name};
-  $('#impT').textContent=f.name||'Add chapters';
+  $('#impT').textContent=f.name||'Add sections';
   const n=heads.length+(lead?1:0);
-  $('#impInfo').textContent=words(text).toLocaleString()+' words · '+(n===1?'1 chapter':n+' chapters')+' will be added.';
+  $('#impInfo').textContent=words(text).toLocaleString()+' words · '+(n===1?'1 section':n+' sections')+' will be added.';
   const L=$('#impList');L.textContent='';
   const row=(t,sub)=>{const d=el('div','');d.style.cssText='padding:10px 14px;border-top:1px solid var(--line);font-family:var(--serif);font-size:15px';d.textContent=t;if(sub){const s2=el('div','',sub);s2.style.cssText='font-family:var(--ui);font-size:12px;color:var(--muted)';d.appendChild(s2)}L.appendChild(d)};
-  if(lead)row('New chapter (title below)',words(lead).toLocaleString()+' words');
+  if(lead)row('New section (title below)',words(lead).toLocaleString()+' words');
   heads.slice(0,8).forEach(h=>row(h.t));if(heads.length>8)row('…and '+(heads.length-8)+' more');
   if(L.firstChild)L.firstChild.style.borderTop='0';
   $('#impNameWrap').style.display=lead?'':'none';
@@ -1251,7 +1251,7 @@ function importText(rawText,fileName){
   $('#impName').value=!lead?'':(/^Nuevo cap/i.test(nh)?stem:(nh+stem)).replace(/\s+/g,' ').trim();
   const W=$('#impWhere');W.textContent='';
   const opt=(v,t)=>{const o=document.createElement('option');o.value=v;o.textContent=t;W.appendChild(o)};
-  opt('end','At the end of the book');
+  opt('end','At the end of the document');
   units.forEach((u,i)=>{if(u.level!==2)return;const st=unitDisplay(u);opt(String(i),'After '+(st.over?st.over+' · ':'')+st.name)});
   opt('start','At the beginning');
   openSheet('#sheetImport');
@@ -1275,7 +1275,7 @@ $('#bImp').onclick=()=>{
     const np={};Object.keys(book.pos).forEach(k=>{np[+k>=idx?+k+added:+k]=book.pos[k]});book.pos=np;
     if(book.last>=idx)book.last+=added;
     imp=null;await persist();renderHome();
-    toast('Added '+(added===1?'1 chapter':added+' chapters')+'. Undo with More → Undo a big change');
+    toast('Added '+(added===1?'1 section':added+' sections')+'. Undo with More → Undo a big change');
   });
 };
 
@@ -1337,7 +1337,7 @@ const C={
       const [a,b]=chapRange(chapI);const i=chapI;
       book.text=(book.text.slice(0,a).replace(/\s+$/,'')+'\n\n'+book.text.slice(b).replace(/^\s+/,'')).replace(/^\s+/,'').replace(/\s+$/,'')+'\n';
       shiftPos(k=>k===i?null:k>i?k-1:k);
-      await persist();renderHome();toast('Chapter deleted');
+      await persist();renderHome();toast('Section deleted');
     });
   }
 };
@@ -1382,7 +1382,7 @@ function startPick(first){
 function endPick(){picked=null;document.body.classList.remove('selecting');renderHome()}
 function togglePick(i,card){if(picked.has(i))picked.delete(i);else picked.add(i);card.classList.toggle('picked',picked.has(i));updPick()}
 function updPick(){
-  const n=picked?picked.size:0;$('#selCount').textContent=n+(n===1?' chapter':' chapters')+' selected';
+  const n=picked?picked.size:0;$('#selCount').textContent=n+(n===1?' section':' sections')+' selected';
   $$('#selActs .lb').forEach(b=>b.disabled=!n);
   $('#selAll').textContent=n&&n===pickable().length?'Select none':'Select all';
 }
@@ -1398,7 +1398,7 @@ function pickedName(){
   let part;
   if(L.length===1)part=(a.over?cap(a.over)+' - ':'')+a.name;
   else if(a.over&&b.over){const nb=(b.over.match(/\d+/)||[''])[0];part=cap(a.over)+(nb?'–'+nb:'')}
-  else part=L.length+' chapters';
+  else part=L.length+' sections';
   return (book_+' — '+part).replace(/[\\/:*?"<>|]+/g,'').replace(/\s+/g,' ').trim().slice(0,100);
 }
 function removePicked(){
@@ -1410,26 +1410,26 @@ function removePicked(){
 const SEL={
   md:()=>{
     const L=pickedList();
-    $('#splitInfo').textContent=L.length+(L.length===1?' chapter':' chapters')+' · '+words(pickedText()).toLocaleString()+' words, in book order.';
+    $('#splitInfo').textContent=L.length+(L.length===1?' section':' sections')+' · '+words(pickedText()).toLocaleString()+' words, in document order.';
     $('#splitName').value=pickedName();splitRemove=false;$('#splitRemoveBox').textContent='';
     openSheet('#sheetSplit');
   },
   pdf:()=>{const t=pickedText(),n=pickedName()+'.pdf';exportFile('pdf',t,n)},
   docx:()=>{const t=pickedText(),n=pickedName()+'.docx';exportFile('docx',t,n)},
   move:()=>{ // gather the selected chapters together, right after the first one
-    const L=pickedList();if(L.length<2){toast('Select at least two chapters to put together');return}
+    const L=pickedList();if(L.length<2){toast('Select at least two sections to put together');return}
     (async()=>{
       await sset('prev',{name:book.name,text:book.text,t:Date.now()});
       const chunk=pickedText().trim();const first=units[L[0]].start;
       removePicked();
       const at=Math.min(first,book.text.length);
       book.text=(book.text.slice(0,at).replace(/\s+$/,'')+(at?'\n\n':'')+chunk+'\n\n'+book.text.slice(at).replace(/^\s+/,'')).replace(/\s+$/,'')+'\n';
-      book.pos={};book.last=-1;await persist();picked=new Set();renderHome();updPick();toast('Chapters put together, in order');
+      book.pos={};book.last=-1;await persist();picked=new Set();renderHome();updPick();toast('Sections put together, in order');
     })();
   },
   del:()=>{
-    const L=pickedList();if(!confirm('Delete '+L.length+(L.length===1?' chapter':' chapters')+'?\n\nYou can bring them back with More → Undo a big change.'))return;
-    (async()=>{await sset('prev',{name:book.name,text:book.text,t:Date.now()});removePicked();await persist();picked=new Set();renderHome();updPick();toast('Deleted '+L.length+(L.length===1?' chapter':' chapters'))})();
+    const L=pickedList();if(!confirm('Delete '+L.length+(L.length===1?' section':' sections')+'?\n\nYou can bring them back with More → Undo a big change.'))return;
+    (async()=>{await sset('prev',{name:book.name,text:book.text,t:Date.now()});removePicked();await persist();picked=new Set();renderHome();updPick();toast('Deleted '+L.length+(L.length===1?' section':' sections'))})();
   }
 };
 $$('#selActs [data-s]').forEach(b=>b.onclick=()=>SEL[b.dataset.s]());
@@ -1515,7 +1515,7 @@ function scope(){return findFrom==='edit'&&isOn(tog.chap)&&units[findUnit]?[unit
 function runFind(){
   const re=buildRe(),box=$('#fHits');box.textContent='';
   parse();const sc=scope();
-  $('#fScopeT').textContent=sc?('In '+(units[findUnit].level===1?'Title page':units[findUnit].title)):'Whole book';
+  $('#fScopeT').textContent=sc?('In '+(units[findUnit].level===1?'Title page':units[findUnit].title)):'Whole document';
   updateReplaceBtn(0);
   if(!re){$('#fInfo').textContent='';return}
   const t=book.text;let m,n=0;
@@ -1543,7 +1543,7 @@ $('#fAll').onclick=async()=>{
   const re=buildRe();if(!re)return;parse();const sc=scope()||[0,book.text.length];
   const part=book.text.slice(sc[0],sc[1]);const n=(part.match(re)||[]).length;if(!n){toast('Nothing to replace');return}
   const r=$('#fR').value;
-  if(!confirm('Replace '+n+(n===1?' result':' results')+' with “'+r+'” '+(scope()?'in this chapter':'in the whole book')+'?\n\nYou can undo this later: More → Undo a big change.'))return;
+  if(!confirm('Replace '+n+(n===1?' result':' results')+' with “'+r+'” '+(scope()?'in this section':'in the whole document')+'?\n\nYou can undo this later: More → Undo a big change.'))return;
   await sset('prev',{name:book.name,text:book.text,t:Date.now()});
   book.text=book.text.slice(0,sc[0])+part.replace(re,()=>r)+book.text.slice(sc[1]);
   if(cur){cur=null} // the chapter is reloaded from the book when you go back
@@ -1622,7 +1622,7 @@ const M={
   docx:()=>{persist();exportFile('docx',book.text,fname().replace(/\.md$/i,'.docx'))},
   print:()=>{persist();printMd(book.text)},
   open:()=>$('#filein').click(),
-  new:async()=>{if(book.text.trim()&&!confirm('Start a new, empty book?\n\nYour current book is kept: More → Undo a big change.'))return;await setBook('# Sin título\n\n## Capítulo 1: \n\n','Sin título.md',true)},
+  new:async()=>{if(book.text.trim()&&!confirm('Start a new, empty document?\n\nYour current document is kept: More → Undo a big change.'))return;await setBook('# Sin título\n\n## Capítulo 1: \n\n','Sin título.md',true)},
   restore:async()=>{const p=await sget('prev');if(!p||!p.text){toast('Nothing to go back to yet');return}
     if(!confirm('Go back to the version from '+new Date(p.t).toLocaleString()+'?\n\nWhat you have now is kept, so you can switch back the same way.'))return;
     const now={name:book.name,text:book.text,t:Date.now()};book={name:p.name,text:p.text,last:-1,pos:{}};await sset('prev',now);await persist();renderHome();toast('Done — switched versions')},
@@ -1644,7 +1644,7 @@ async function openFile(f){
   if(cur)deskDetach();
   const text=await f.text();
   if(text.startsWith('%PDF')||text.startsWith('PK')){if(confirm('That’s a PDF or Word file. This editor opens .md files.\n\nOpen the converter to turn it into one?'))goConvert();return}
-  if(book.text.trim()&&book.text!==text&&!confirm('Open “'+f.name+'”?\n\nIt replaces the book here. Your current one is kept: More → Undo a big change.'))return;
+  if(book.text.trim()&&book.text!==text&&!confirm('Open “'+f.name+'”?\n\nIt replaces the document here. Your current one is kept: More → Undo a big change.'))return;
   await setBook(text,f.name,true);toast('Opened '+f.name);
 }
 
